@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C25026C5BF49F0D1EE1038B /* Pods_NewsApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941CD372C59BA2566A34EE33 /* Pods_NewsApi.framework */; };
+		6F0F4EC0234B9FA900C050F7 /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0F4EBF234B9FA900C050F7 /* FavouriteViewModel.swift */; };
 		6F4A676D23450BC000BD1014 /* FeedCategoryVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A676B23450BC000BD1014 /* FeedCategoryVCell.swift */; };
 		6F4A676E23450BC000BD1014 /* FeedCategoryVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A676C23450BC000BD1014 /* FeedCategoryVCell.xib */; };
 		6F4A67752346073100BD1014 /* PreviewItemVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A67732346073100BD1014 /* PreviewItemVCell.swift */; };
@@ -26,6 +27,7 @@
 		6FA81733233CDAC6005DCB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FA81732233CDAC6005DCB86 /* Assets.xcassets */; };
 		6FA81736233CDAC6005DCB86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA81734233CDAC6005DCB86 /* LaunchScreen.storyboard */; };
 		6FA8173E233CE0FA005DCB86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA8173D233CE0FA005DCB86 /* Main.storyboard */; };
+		6FB008FB234BB0BF006F29F9 /* ArticleModelToApiMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB008FA234BB0BF006F29F9 /* ArticleModelToApiMapper.swift */; };
 		6FC13DB1234626A90076F948 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC13DAF234626A90076F948 /* FeedVC.swift */; };
 		6FC13DB2234626A90076F948 /* FeedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FC13DB0234626A90076F948 /* FeedVC.xib */; };
 		6FC13DB8234638B50076F948 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC13DB7234638B50076F948 /* PinterestLayout.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F0F4EBF234B9FA900C050F7 /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
 		6F4A676B23450BC000BD1014 /* FeedCategoryVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCategoryVCell.swift; sourceTree = "<group>"; };
 		6F4A676C23450BC000BD1014 /* FeedCategoryVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCategoryVCell.xib; sourceTree = "<group>"; };
 		6F4A67732346073100BD1014 /* PreviewItemVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewItemVCell.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		6FA81735233CDAC6005DCB86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FA81737233CDAC6005DCB86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA8173D233CE0FA005DCB86 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6FB008FA234BB0BF006F29F9 /* ArticleModelToApiMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModelToApiMapper.swift; sourceTree = "<group>"; };
 		6FC13DAF234626A90076F948 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		6FC13DB0234626A90076F948 /* FeedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedVC.xib; sourceTree = "<group>"; };
 		6FC13DB7234638B50076F948 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
@@ -91,6 +95,23 @@
 				9942BD13C72F95747B6CC36E /* Pods-NewsApi.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6F0F4EC1234B9FCB00C050F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F0F4EBF234B9FA900C050F7 /* FavouriteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6F0F4EC2234B9FD400C050F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6FEB1774234915C5002BD874 /* FavouriteVC.swift */,
+				6FEB1775234915C5002BD874 /* FavouriteVC.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6F1E89A52343B0BB00291E80 /* Service */ = {
@@ -174,8 +195,8 @@
 		6FA6FF84233F627200123654 /* Favourite */ = {
 			isa = PBXGroup;
 			children = (
-				6FEB1774234915C5002BD874 /* FavouriteVC.swift */,
-				6FEB1775234915C5002BD874 /* FavouriteVC.xib */,
+				6F0F4EC2234B9FD400C050F7 /* View */,
+				6F0F4EC1234B9FCB00C050F7 /* ViewModel */,
 			);
 			path = Favourite;
 			sourceTree = "<group>";
@@ -190,6 +211,7 @@
 		6FA6FF8A2340D2F200123654 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6FB008FC234BB0C4006F29F9 /* Mapper */,
 				6FA6FF8B2340D31000123654 /* SuccessResponseApi.swift */,
 				6FEB177823494634002BD874 /* ArticleModel.swift */,
 			);
@@ -237,6 +259,14 @@
 				6F4A676A23450B8700BD1014 /* Category */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		6FB008FC234BB0C4006F29F9 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				6FB008FA234BB0BF006F29F9 /* ArticleModelToApiMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		6FC13DB32346294C0076F948 /* UI */ = {
@@ -418,9 +448,11 @@
 				6FEB1776234915C5002BD874 /* FavouriteVC.swift in Sources */,
 				6F8027B4234B55A400C0D5E5 /* FullArticleViewModel.swift in Sources */,
 				6FA6FF87233F676C00123654 /* NetworkService.swift in Sources */,
+				6F0F4EC0234B9FA900C050F7 /* FavouriteViewModel.swift in Sources */,
 				6F4A67752346073100BD1014 /* PreviewItemVCell.swift in Sources */,
 				6FEB177923494634002BD874 /* ArticleModel.swift in Sources */,
 				6FA8172C233CDAC2005DCB86 /* SceneDelegate.swift in Sources */,
+				6FB008FB234BB0BF006F29F9 /* ArticleModelToApiMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,3 +59,18 @@ private extension Realm {
         delete(element)
     }
 }
+
+
+// MARK: -> result to Array
+extension Results {
+    func toArray() -> [Element] {
+        return self.map{$0}
+    }
+}
+
+extension RealmSwift.List {
+
+    func toArray() -> [Element] {
+        return self.map{$0}
+    }
+}

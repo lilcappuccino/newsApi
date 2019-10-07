@@ -14,14 +14,14 @@ import RealmSwift
 ///Model it is mean that this struct from db
 
 class ArticleModel: Object {
-    @objc var source: SourceModel? = nil
-    @objc var image: ImageModel? = nil
-    @objc var author : String? = nil
-    @objc var content: String? = nil
-    @objc var articleDescription: String? = nil
-    @objc var title: String = ""
-    @objc var url: String = ""
-    @objc var publishedAt : String = ""
+    @objc dynamic var source: SourceModel? = nil
+    @objc dynamic var image: ImageModel? = nil
+    @objc dynamic var author : String? = nil
+    @objc dynamic var content: String? = nil
+    @objc dynamic var articleDescription: String? = nil
+    @objc dynamic var title: String = ""
+    @objc dynamic var url: String = ""
+    @objc dynamic var publishedAt : String = ""
     
     override static func primaryKey() -> String? {
         return "url"
@@ -29,12 +29,12 @@ class ArticleModel: Object {
 }
 
 class SourceModel: Object {
-    @objc var id: String? = nil
-    @objc var name: String? = nil
+    @objc dynamic var id: String? = nil
+    @objc dynamic var name: String? = nil
 }
 
 class ImageModel: Object {
-    @objc var imageUrl: String? = nil
-    @objc var height: Float = 0.0
-    @objc var width: Float = 0.0
+    @objc dynamic var imageUrl: String? = nil
+    @objc dynamic var height: Float = 0.0
+    @objc dynamic var width: Float = 0.0
 }

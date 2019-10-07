@@ -15,7 +15,7 @@ class DatabaseManager {
     static let  shared = DatabaseManager()
     private init(){}
     
-    let realm = try! Realm()
+    private let realm = try! Realm()
     
     func writeToDatabase(apiArticle: ArticleApi, imageSize: CGSize?) {
         let imageHeight = Float( imageSize?.height ?? 0 )
@@ -73,6 +73,11 @@ class DatabaseManager {
         try! realm.write {
             realm.delete(article, cascading: true)
         }
+    }
+    
+    
+    func getAllArticle() -> Results<ArticleModel> {
+        return realm.objects(ArticleModel.self)
     }
 
     

@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouriteVC" customModule="NewsApi" customModuleProvider="target">
             <connections>
                 <outlet property="anitationView" destination="i3F-5n-Aci" id="1mi-fy-QWX"/>
+                <outlet property="emptyStateView" destination="Rwx-hm-RIp" id="HKr-Oy-qg4"/>
+                <outlet property="favArticleCollectionView" destination="ZhB-Np-qI6" id="OGp-mX-3AB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +20,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwx-hm-RIp" userLabel="Empty State View">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZhB-Np-qI6">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewLayout key="collectionViewLayout" id="w0t-aj-rki" customClass="PinterestLayout" customModule="NewsApi" customModuleProvider="target"/>
+                </collectionView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwx-hm-RIp" userLabel="Empty State View">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3F-5n-Aci" customClass="AnimationView" customModule="Lottie">
@@ -52,8 +59,12 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Rwx-hm-RIp" secondAttribute="bottom" id="0VV-d8-h52"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZhB-Np-qI6" secondAttribute="trailing" id="6ed-QA-YJQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rwx-hm-RIp" secondAttribute="trailing" id="NtY-cM-w91"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZhB-Np-qI6" secondAttribute="bottom" id="dbO-YZ-dmb"/>
                 <constraint firstItem="Rwx-hm-RIp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g0k-qe-T4p"/>
+                <constraint firstItem="ZhB-Np-qI6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hJ6-Jv-ZCr"/>
+                <constraint firstItem="ZhB-Np-qI6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hcq-Xv-r9E"/>
                 <constraint firstItem="Rwx-hm-RIp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tLz-Qx-Znp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

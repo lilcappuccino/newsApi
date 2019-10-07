@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedVC" customModule="NewsApi" customModuleProvider="target">
             <connections>
+                <outlet property="errorButton" destination="AP9-b0-SyD" id="PGk-kF-qvm"/>
                 <outlet property="feedCollectionView" destination="ZCu-En-lrg" id="KSB-Wi-qwY"/>
                 <outlet property="loadingView" destination="QbB-D9-LY3" id="EAU-3f-7Ih"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -36,15 +37,33 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading_feed"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AP9-b0-SyD">
+                    <rect key="frame" x="100" y="742" width="214" height="70"/>
+                    <color key="backgroundColor" red="0.73801369863013699" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="m7S-hU-QMJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <state key="normal" title="Go to &quot;favourite&quot;">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="highlighted" title="ssssss"/>
+                    <connections>
+                        <action selector="clickedGoToFavourite:" destination="-1" eventType="touchUpInside" id="dxa-2a-ijf"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ZCu-En-lrg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="28p-G9-hVD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QbB-D9-LY3" secondAttribute="bottom" id="3Ds-GV-jCH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AP9-b0-SyD" secondAttribute="bottom" constant="50" id="3Ek-bV-qAm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZCu-En-lrg" secondAttribute="bottom" id="AqQ-n1-ZI0"/>
                 <constraint firstItem="ZCu-En-lrg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GMT-K4-mEv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AP9-b0-SyD" secondAttribute="trailing" constant="100" id="X9B-Ec-7Gu"/>
                 <constraint firstItem="QbB-D9-LY3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bYB-AY-7Ax"/>
                 <constraint firstItem="QbB-D9-LY3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cKb-69-BbO"/>
+                <constraint firstItem="AP9-b0-SyD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="fgG-rB-v1s"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QbB-D9-LY3" secondAttribute="trailing" id="g8b-p9-nnX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZCu-En-lrg" secondAttribute="trailing" id="gPA-yg-VQY"/>
             </constraints>

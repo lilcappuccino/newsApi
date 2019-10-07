@@ -15,12 +15,13 @@ import Lottie
 class FeedVC: UIViewController {
     @IBOutlet weak var feedCollectionView: UICollectionView!
     @IBOutlet weak var loadingView: AnimationView!
+    // button with text "go to favourite"
+    @IBOutlet weak var errorButton: UIButton!
     
     private let viewModel = FeedViewModel()
     private var photo: [UIImage]?
     
     let disposeBag = DisposeBag()
-    
     
     
     // MARK: -> Lifecyrcle
@@ -75,6 +76,12 @@ class FeedVC: UIViewController {
                 }
         ).disposed(by: disposeBag)
         
+        viewModel.error
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] error in
+                self?.errorButton.isHidden = false
+                }
+        ).disposed(by: disposeBag)
     }
     
     //MARK: -> Show MODAL view (Loading)
@@ -84,9 +91,15 @@ class FeedVC: UIViewController {
             loadingView.play()
         } else {
             loadingView.isHidden = true
+             errorButton.isHidden = true
         }
         
     }
+    //MARK: -> Click
+    @IBAction func clickedGoToFavourite(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+     }
+     
 
     
 }
