@@ -17,16 +17,15 @@ class DatabaseManager {
     
     let realm = try! Realm()
     
-    func writeToDatabase(apiArticle: ArticleApi, imageHeight: Float, imageWidth: Float) {
-       
+    func writeToDatabase(apiArticle: ArticleApi, imageSize: CGSize?) {
+        let imageHeight = Float( imageSize?.height ?? 0 )
+        let imageWidth = Float (imageSize?.width ?? 0)
         
         let source = saveSource(sourceApi: apiArticle.source)
-        let image = saveImage(imageUrl: apiArticle.urlToImage, imageHeight: imageHeight, imageWidth: imageHeight)
+        let image = saveImage(imageUrl: apiArticle.urlToImage, imageHeight: imageHeight, imageWidth: imageWidth)
         let article = saveArticle(apiArticle: apiArticle, sourceModel: source, imageModel: image)
         
         try! realm.write {
-//            if let realmSource = source { realm.add(realmSource) }
-//            if let realmImage = image { realm.add(realmImage) }
             realm.add(article)
         }
     }

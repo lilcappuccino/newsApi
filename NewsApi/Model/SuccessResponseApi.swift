@@ -9,11 +9,11 @@
 import Foundation
 
 enum Response {
-    case success (date: ResponseApi)
+    case success (date: SuccessResponseApi)
     case failure (error: Error)
 }
 
-struct ResponseApi: Codable {
+struct SuccessResponseApi: Codable {
     let status: String
     let totalResults: Int
     let articles : [ArticleApi]

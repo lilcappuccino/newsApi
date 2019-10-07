@@ -33,7 +33,7 @@ class NetworkService {
             case .success( _):
                 guard let data  = response.data else {return}
                 do {
-                    let response = try JSONDecoder().decode(ResponseApi.self, from: data)
+                    let response = try JSONDecoder().decode(SuccessResponseApi.self, from: data)
                     completion(.success(date: response))
                 } catch {
                     print(error)

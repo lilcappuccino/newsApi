@@ -22,35 +22,29 @@ class FeedVC: UIViewController {
     let disposeBag = DisposeBag()
     
     
+    
+    // MARK: -> Lifecyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        viewModel.checkIsNetworkAvaible()
+        setupUI()
+        setupBindings()
+        viewModel.fetchDate()
+    }
+    
+    
+    //MARK: -> Setup UI
+    private func setupUI(){
         self.title = "Top Articles"
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
         feedCollectionView.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
-        setupBindings()
-        viewModel.fetchDate()
-        setNavBarAppearance()
-        // Do any additional setup after loading the view.
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        setNavBarAppearance()
-    }
-    /// Customize navigation bar appearance for ios 13
-    func setNavBarAppearance() {
-        if #available(iOS 13, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithDefaultBackground()
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
     
     
+    //MARK: -> setupBindings
     private func setupBindings() {
         self.feedCollectionView.register(UINib(nibName: "PreviewItemVCell", bundle: nil), forCellWithReuseIdentifier: PreviewItemVCell.identifier)
         
@@ -68,7 +62,7 @@ class FeedVC: UIViewController {
         Observable.zip(feedCollectionView.rx.itemSelected ,feedCollectionView.rx.modelSelected(ArticleApi.self))
             .bind{ [weak self] indexPath, model in
                 let cell = self?.feedCollectionView.cellForItem(at: indexPath) as? PreviewItemVCell
-                let fullArticleVC =  FullArticleViewController(nibName: "FullArticleViewController", bundle: nil  )
+                let fullArticleVC =  FullArticleVC(nibName: "FullArticleViewController", bundle: nil  )
                 fullArticleVC.image = cell?.image.image
                 fullArticleVC.article = model
                 self?.present(fullArticleVC, animated: true, completion: nil)
@@ -81,15 +75,6 @@ class FeedVC: UIViewController {
                 }
         ).disposed(by: disposeBag)
         
-        //
-        //        feedCollectionView.rx.itemSelected
-        //
-        //        .subscribe(onNext: { [weak self] indexPath in
-        //
-        //            self?.present(fullArticleVC, animated: true, completion: nil)
-        //        }).disposed(by: disposeBag)
-        //
-        //
     }
     
     //MARK: -> Show MODAL view (Loading)
@@ -102,29 +87,11 @@ class FeedVC: UIViewController {
         }
         
     }
-    
-    //       func display(contentController content: UIViewController, on view: UIView) {
-    //           self.addChild(content)
-    //           content.view.frame = view.bounds
-    //           view.addSubview(content.view)
-    //           content.didMove(toParent: self)
-    //       }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
 
-
+//MARK: -> UICollectionViewDelegateFlowLayout
 extension FeedVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

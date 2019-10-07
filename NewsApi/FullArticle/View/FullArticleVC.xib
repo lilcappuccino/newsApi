@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullArticleViewController" customModule="NewsApi" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullArticleVC" customModule="NewsApi" customModuleProvider="target">
             <connections>
                 <outlet property="articleImageView" destination="yed-Ut-Sdk" id="r20-vA-d56"/>
                 <outlet property="browserView" destination="1zC-DQ-HZC" id="htT-h6-E9i"/>

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FullArticleViewController: UIViewController {
+class FullArticleVC: UIViewController {
     
     @IBOutlet weak var favouriteButtonView: UIButton!
     
@@ -22,9 +22,13 @@ class FullArticleViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
     
+    private var viewModel = FullArticleViewModel()
+    
     var article : ArticleApi?
     var image: UIImage?
     
+    
+    //MARK: -> Click
     @IBAction func saveArticleClicked(_ sender: UIButton) {
         if sender.isSelected {
              deleteArticle()
@@ -32,20 +36,8 @@ class FullArticleViewController: UIViewController {
              saveArticle()
         }
         sender.isSelected = !sender.isSelected
-        
-    }
+        }
     
-    
-    private func saveArticle(){
-        guard let savedArticle = article else { return }
-        DatabaseManager.shared.writeToDatabase(apiArticle: savedArticle, imageHeight: Float(
-            image?.size.height ?? 0), imageWidth: Float(image?.size.width ?? 0)).self
-    }
-    
-    private func deleteArticle(){
-        guard let deletedArticle = article else { return }
-        DatabaseManager.shared.deleteArticleFromFavourite(by: deletedArticle.url)
-    }
     
     @IBAction func openUrlClicked(_ sender: Any) {
         if let urlString = article?.url , let url = URL(string: urlString) {
@@ -54,15 +46,17 @@ class FullArticleViewController: UIViewController {
     }
     
     
+    
+    //MARK: -> Lifecyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
-         print(Realm.Configuration.defaultConfiguration.fileURL!)
         setupImageView()
         setupUI()
     }
     
     
     
+    //MARK: -> UI
     
     private func setupUI(){
         guard let currentArticle = article else {return}
@@ -96,17 +90,32 @@ class FullArticleViewController: UIViewController {
         setupUIButton(to: browserView)
     }
     
-    private func configDate(publishedAt date: String){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
-        let date = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        let dateString = dateFormatter.string(from: date!)
-        dateLabel.text = dateString
-    }
-    
+    // MARK: -> UI for action circle button
     private func setupUIButton(to view: UIView){
         view.layer.cornerRadius = 16
     }
     
+    // MARK: -> configDate
+    private func configDate(publishedAt date: String){
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+          let date = dateFormatter.date(from: date)
+          dateFormatter.dateFormat = "dd.MM.yyyy"
+          let dateString = dateFormatter.string(from: date!)
+          dateLabel.text = dateString
+      }
+    
+    
+
+    //MARK: -> ViewModel method
+    private func saveArticle(){
+        guard let savedArticle = article  else { return }
+        viewModel.saveArticleToDb(article: savedArticle, imageSize: image?.size)
+        
+    }
+    
+    private func deleteArticle(){
+        guard let deletedArticle = article else { return }
+        viewModel.removeArticleFromDb(by: deletedArticle.url)
+    }
 }
