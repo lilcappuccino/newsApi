@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouriteVC" customModule="NewsApi" customModuleProvider="target">
+            <connections>
+                <outlet property="anitationView" destination="i3F-5n-Aci" id="1mi-fy-QWX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwx-hm-RIp" userLabel="Empty State View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3F-5n-Aci" customClass="AnimationView" customModule="Lottie">
+                            <rect key="frame" x="57" y="159" width="300" height="300"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="Ie5-vg-eok"/>
+                                <constraint firstAttribute="height" constant="300" id="X6G-YA-mry"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="empty-box"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have not favourite article yet. :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-8i-LRq">
+                            <rect key="frame" x="16" y="479" width="382" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="pCO-8i-LRq" secondAttribute="trailing" constant="16" id="1Xp-bW-Ucr"/>
+                        <constraint firstItem="i3F-5n-Aci" firstAttribute="centerY" secondItem="Rwx-hm-RIp" secondAttribute="centerY" constant="-100" id="Ac6-H4-4mj"/>
+                        <constraint firstItem="pCO-8i-LRq" firstAttribute="top" secondItem="i3F-5n-Aci" secondAttribute="bottom" constant="20" id="Drc-I8-kpx"/>
+                        <constraint firstItem="i3F-5n-Aci" firstAttribute="centerX" secondItem="Rwx-hm-RIp" secondAttribute="centerX" id="lgr-uh-9zo"/>
+                        <constraint firstItem="pCO-8i-LRq" firstAttribute="leading" secondItem="Rwx-hm-RIp" secondAttribute="leading" constant="16" id="voM-2H-hYT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Rwx-hm-RIp" secondAttribute="bottom" id="0VV-d8-h52"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rwx-hm-RIp" secondAttribute="trailing" id="NtY-cM-w91"/>
+                <constraint firstItem="Rwx-hm-RIp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g0k-qe-T4p"/>
+                <constraint firstItem="Rwx-hm-RIp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tLz-Qx-Znp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="127"/>
+        </view>
+    </objects>
+</document>
