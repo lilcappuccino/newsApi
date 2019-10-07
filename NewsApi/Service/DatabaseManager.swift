@@ -72,7 +72,7 @@ class DatabaseManager {
     func deleteArticleFromFavourite(by url: String) {
         let article = realm.objects(ArticleModel.self).filter("url == %@", url)
         try! realm.write {
-            realm.delete(article)
+            realm.delete(article, cascading: true)
         }
     }
 
