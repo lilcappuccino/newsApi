@@ -13,6 +13,9 @@
 		6F4A676E23450BC000BD1014 /* FeedCategoryVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A676C23450BC000BD1014 /* FeedCategoryVCell.xib */; };
 		6F4A67752346073100BD1014 /* PreviewItemVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A67732346073100BD1014 /* PreviewItemVCell.swift */; };
 		6F4A67762346073100BD1014 /* PreviewItemVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A67742346073100BD1014 /* PreviewItemVCell.xib */; };
+		6F550C22234DFDF500E743E3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F550C20234DFDF500E743E3 /* SettingVC.swift */; };
+		6F550C23234DFDF500E743E3 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F550C21234DFDF500E743E3 /* SettingVC.xib */; };
+		6F550C25234E069400E743E3 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F550C24234E069400E743E3 /* SettingViewModel.swift */; };
 		6F8027B4234B55A400C0D5E5 /* FullArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8027B3234B55A400C0D5E5 /* FullArticleViewModel.swift */; };
 		6F8966E9234B459B007A03C3 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8966E8234B459B007A03C3 /* RealmExtension.swift */; };
 		6F8966F1234B4BAF007A03C3 /* loading_feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F8966F0234B4BAF007A03C3 /* loading_feed.json */; };
@@ -45,6 +48,9 @@
 		6F4A676C23450BC000BD1014 /* FeedCategoryVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCategoryVCell.xib; sourceTree = "<group>"; };
 		6F4A67732346073100BD1014 /* PreviewItemVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewItemVCell.swift; sourceTree = "<group>"; };
 		6F4A67742346073100BD1014 /* PreviewItemVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewItemVCell.xib; sourceTree = "<group>"; };
+		6F550C20234DFDF500E743E3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		6F550C21234DFDF500E743E3 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
+		6F550C24234E069400E743E3 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		6F8027B3234B55A400C0D5E5 /* FullArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArticleViewModel.swift; sourceTree = "<group>"; };
 		6F8966E8234B459B007A03C3 /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		6F8966F0234B4BAF007A03C3 /* loading_feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading_feed.json; path = ../../../../../../../Downloads/loading_feed.json; sourceTree = "<group>"; };
@@ -149,6 +155,23 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		6F550C1E234DFDC400E743E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F550C24234E069400E743E3 /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6F550C1F234DFDD400E743E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F550C20234DFDF500E743E3 /* SettingVC.swift */,
+				6F550C21234DFDF500E743E3 /* SettingVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6F8966EC234B49BF007A03C3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +227,8 @@
 		6FA6FF85233F627C00123654 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				6F550C1F234DFDD400E743E3 /* View */,
+				6F550C1E234DFDC400E743E3 /* ViewModel */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -380,6 +405,7 @@
 				6FEB1777234915C5002BD874 /* FavouriteVC.xib in Resources */,
 				6FC13DB2234626A90076F948 /* FeedVC.xib in Resources */,
 				6FA8173E233CE0FA005DCB86 /* Main.storyboard in Resources */,
+				6F550C23234DFDF500E743E3 /* SettingVC.xib in Resources */,
 				6FA81736233CDAC6005DCB86 /* LaunchScreen.storyboard in Resources */,
 				6FA81733233CDAC6005DCB86 /* Assets.xcassets in Resources */,
 			);
@@ -435,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FA6FF892340D2E700123654 /* FeedViewModel.swift in Sources */,
+				6F550C25234E069400E743E3 /* SettingViewModel.swift in Sources */,
 				6FC13DB1234626A90076F948 /* FeedVC.swift in Sources */,
 				6F8966E9234B459B007A03C3 /* RealmExtension.swift in Sources */,
 				6FEB177B23494DFF002BD874 /* DatabaseManager.swift in Sources */,
@@ -451,6 +478,7 @@
 				6F0F4EC0234B9FA900C050F7 /* FavouriteViewModel.swift in Sources */,
 				6F4A67752346073100BD1014 /* PreviewItemVCell.swift in Sources */,
 				6FEB177923494634002BD874 /* ArticleModel.swift in Sources */,
+				6F550C22234DFDF500E743E3 /* SettingVC.swift in Sources */,
 				6FA8172C233CDAC2005DCB86 /* SceneDelegate.swift in Sources */,
 				6FB008FB234BB0BF006F29F9 /* ArticleModelToApiMapper.swift in Sources */,
 			);

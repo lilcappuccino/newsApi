@@ -15,7 +15,7 @@ class MainTabBarViewController: UITabBarController {
                viewControllers = [
         generateNavigationController(rootViewController: FeedVC(), title: "Feed", image: #imageLiteral(resourceName: "ic_feed")),
     generateNavigationController(rootViewController: FavouriteVC(), title: "Favourite", image: #imageLiteral(resourceName: "ic_favourite")),
-            generateNavigationController(rootViewController: FeedVC(), title: "Setting", image: #imageLiteral(resourceName: "ic_favourite"))
+            generateNavigationController(rootViewController: SettingVC(), title: "Setting", image: #imageLiteral(resourceName: "ic_favourite"))
         
               ]
     }

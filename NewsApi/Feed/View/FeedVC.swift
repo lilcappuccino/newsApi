@@ -63,7 +63,7 @@ class FeedVC: UIViewController {
         Observable.zip(feedCollectionView.rx.itemSelected ,feedCollectionView.rx.modelSelected(ArticleApi.self))
             .bind{ [weak self] indexPath, model in
                 let cell = self?.feedCollectionView.cellForItem(at: indexPath) as? PreviewItemVCell
-                let fullArticleVC =  FullArticleVC(nibName: "FullArticleViewController", bundle: nil  )
+                let fullArticleVC =  FullArticleVC(nibName: "FullArticleVC", bundle: nil  )
                 fullArticleVC.image = cell?.image.image
                 fullArticleVC.article = model
                 self?.present(fullArticleVC, animated: true, completion: nil)

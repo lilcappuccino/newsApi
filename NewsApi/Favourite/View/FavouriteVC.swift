@@ -30,13 +30,17 @@ class FavouriteVC: UIViewController {
         super.viewDidLoad()
         showModalView(isPlay: true)
         setupBinds()
-             viewModel.fetchDateFromDb()
         self.title = "Favourite"
         if let layout = favArticleCollectionView?.collectionViewLayout as? PinterestLayout {
                  layout.delegate = self
                }
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+           viewModel.fetchDateFromDb()
+    }
     
     private func setupBinds(){
         self.favArticleCollectionView.register(UINib(nibName: "PreviewItemVCell", bundle: nil), forCellWithReuseIdentifier: PreviewItemVCell.identifier)
@@ -47,6 +51,7 @@ class FavouriteVC: UIViewController {
             .bind(to:
             self.favArticleCollectionView.rx.items(cellIdentifier: PreviewItemVCell.identifier, cellType: PreviewItemVCell.self)) { (item, article,cell) in
                 cell.article = ArticleModelToApiMapper.map(from: article)
+                print("---- item \(item) + \(article.title)")
         }.disposed(by: disposeBag)
         
         viewModel
@@ -79,6 +84,7 @@ extension FavouriteVC :  PinterestLayoutDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return CGFloat(imageList[indexPath.row]?.height ?? 240)
+        let scale = collectionView.contentSize.width / CGFloat(imageList[indexPath.row]?.width ?? 1)
+        return CGFloat(imageList[indexPath.row]?.height ?? 240) * scale
     }
 }

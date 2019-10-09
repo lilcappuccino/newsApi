@@ -79,6 +79,11 @@ class DatabaseManager {
     func getAllArticle() -> Results<ArticleModel> {
         return realm.objects(ArticleModel.self)
     }
-
     
+    func removeAllDb(){
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+        
 }
