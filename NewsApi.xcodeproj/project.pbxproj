@@ -13,6 +13,7 @@
 		6F4A676E23450BC000BD1014 /* FeedCategoryVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A676C23450BC000BD1014 /* FeedCategoryVCell.xib */; };
 		6F4A67752346073100BD1014 /* PreviewItemVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A67732346073100BD1014 /* PreviewItemVCell.swift */; };
 		6F4A67762346073100BD1014 /* PreviewItemVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A67742346073100BD1014 /* PreviewItemVCell.xib */; };
+		6F4FBB342352058500985741 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4FBB332352058500985741 /* DateExtension.swift */; };
 		6F550C22234DFDF500E743E3 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F550C20234DFDF500E743E3 /* SettingVC.swift */; };
 		6F550C23234DFDF500E743E3 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F550C21234DFDF500E743E3 /* SettingVC.xib */; };
 		6F550C25234E069400E743E3 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F550C24234E069400E743E3 /* SettingViewModel.swift */; };
@@ -48,13 +49,14 @@
 		6F4A676C23450BC000BD1014 /* FeedCategoryVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCategoryVCell.xib; sourceTree = "<group>"; };
 		6F4A67732346073100BD1014 /* PreviewItemVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewItemVCell.swift; sourceTree = "<group>"; };
 		6F4A67742346073100BD1014 /* PreviewItemVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewItemVCell.xib; sourceTree = "<group>"; };
+		6F4FBB332352058500985741 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		6F550C20234DFDF500E743E3 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		6F550C21234DFDF500E743E3 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		6F550C24234E069400E743E3 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		6F8027B3234B55A400C0D5E5 /* FullArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArticleViewModel.swift; sourceTree = "<group>"; };
 		6F8966E8234B459B007A03C3 /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
-		6F8966F0234B4BAF007A03C3 /* loading_feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading_feed.json; path = ../../../../../../../Downloads/loading_feed.json; sourceTree = "<group>"; };
-		6F8966F2234B4BF7007A03C3 /* empty_fav.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = empty_fav.json; path = ../../../../../../../Downloads/empty_fav.json; sourceTree = "<group>"; };
+		6F8966F0234B4BAF007A03C3 /* loading_feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_feed.json; sourceTree = "<group>"; };
+		6F8966F2234B4BF7007A03C3 /* empty_fav.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_fav.json; sourceTree = "<group>"; };
 		6FA6FF7F233F5DF500123654 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		6FA6FF86233F676C00123654 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		6FA6FF882340D2E700123654 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				6FA6FF7F233F5DF500123654 /* ImageExtension.swift */,
 				6F8966E8234B459B007A03C3 /* RealmExtension.swift */,
+				6F4FBB332352058500985741 /* DateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				6FA6FF87233F676C00123654 /* NetworkService.swift in Sources */,
 				6F0F4EC0234B9FA900C050F7 /* FavouriteViewModel.swift in Sources */,
 				6F4A67752346073100BD1014 /* PreviewItemVCell.swift in Sources */,
+				6F4FBB342352058500985741 /* DateExtension.swift in Sources */,
 				6FEB177923494634002BD874 /* ArticleModel.swift in Sources */,
 				6F550C22234DFDF500E743E3 /* SettingVC.swift in Sources */,
 				6FA8172C233CDAC2005DCB86 /* SceneDelegate.swift in Sources */,

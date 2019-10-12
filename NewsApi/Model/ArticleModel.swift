@@ -21,7 +21,8 @@ class ArticleModel: Object {
     @objc dynamic var articleDescription: String? = nil
     @objc dynamic var title: String = ""
     @objc dynamic var url: String = ""
-    @objc dynamic var publishedAt : String = ""
+    @objc dynamic var publishedAt: String = ""
+    @objc dynamic var addedAt: Int64 = 0
     
     override static func primaryKey() -> String? {
         return "url"

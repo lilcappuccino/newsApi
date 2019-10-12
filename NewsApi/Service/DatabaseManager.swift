@@ -38,9 +38,11 @@ class DatabaseManager {
         article.publishedAt = apiArticle.publishedAt
         article.title = apiArticle.title
         article.url = apiArticle.url
-        
+        // embaded objects
         article.image = imageModel
         article.source = sourceModel
+        
+        article.addedAt = Date().currentTimeMillis()
         
         return article
     }
@@ -78,6 +80,7 @@ class DatabaseManager {
     
     func getAllArticle() -> Results<ArticleModel> {
         return realm.objects(ArticleModel.self)
+        
     }
     
     func removeAllDb(){

@@ -26,20 +26,21 @@ class FavouriteVC: UIViewController {
     
     
     override func viewDidLoad() {
-         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         super.viewDidLoad()
         showModalView(isPlay: true)
         setupBinds()
         self.title = "Favourite"
         if let layout = favArticleCollectionView?.collectionViewLayout as? PinterestLayout {
-                 layout.delegate = self
-               }
+            layout.delegate = self
+        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-           viewModel.fetchDateFromDb()
+        viewModel.fetchDateFromDb()
+        favArticleCollectionView.reloadData()
     }
     
     private func setupBinds(){
@@ -51,21 +52,20 @@ class FavouriteVC: UIViewController {
             .bind(to:
             self.favArticleCollectionView.rx.items(cellIdentifier: PreviewItemVCell.identifier, cellType: PreviewItemVCell.self)) { (item, article,cell) in
                 cell.article = ArticleModelToApiMapper.map(from: article)
-                print("---- item \(item) + \(article.title)")
         }.disposed(by: disposeBag)
+        
         
         viewModel
             .articlesSubject
             .observeOn(MainScheduler.instance)
-            .map({article in
-                if(!article.isEmpty){ self.showModalView(isPlay: false)}
+            .map({[weak self] article in
+                if(!article.isEmpty){ self?.showModalView(isPlay: false)}
                 for currentArticle in article {
-                    print("current title \(currentArticle.title)")
-                    self.imageList.append(currentArticle.image)
+                    self?.imageList.append(currentArticle.image)
                 }
             })
-            .subscribe({print("ok \($0.isCompleted)")}).disposed(by: disposeBag)
-
+            .subscribe().disposed(by: disposeBag)
+        
     }
     
     private func showModalView(isPlay: Bool){
