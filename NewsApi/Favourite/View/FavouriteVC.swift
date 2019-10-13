@@ -40,7 +40,6 @@ class FavouriteVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         viewModel.fetchDateFromDb()
-        favArticleCollectionView.reloadData()
     }
     
     private func setupBinds(){
@@ -65,6 +64,15 @@ class FavouriteVC: UIViewController {
                 }
             })
             .subscribe().disposed(by: disposeBag)
+        
+        Observable.zip(favArticleCollectionView.rx.itemSelected ,favArticleCollectionView.rx.modelSelected(ArticleModel.self))
+                  .bind{ [weak self] indexPath, model in
+                      let cell = self?.favArticleCollectionView.cellForItem(at: indexPath) as? PreviewItemVCell
+                      let fullArticleVC =  FullArticleVC(nibName: "FullArticleVC", bundle: nil  )
+                      fullArticleVC.image = cell?.image.image
+                    fullArticleVC.article = ArticleModelToApiMapper.map(from: model)
+                    self?.navigationController?.pushViewController(fullArticleVC, animated: true)
+              }.disposed(by: disposeBag)
         
     }
     
