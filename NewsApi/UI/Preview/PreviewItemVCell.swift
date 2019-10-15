@@ -30,10 +30,10 @@ class PreviewItemVCell: UICollectionViewCell {
     }
     
     
-    var article : ArticleApi?{
+    var article : ArticleModel?{
         didSet{
             guard let currentArticle  = article else {return}
-            if let urlString = currentArticle.urlToImage, let url = URL(string: urlString) {
+            if let urlString = currentArticle.image?.imageUrl, let url = URL(string: urlString) {
                 image.sd_setImage(
                      with: url,
                      placeholderImage: #imageLiteral(resourceName: "placeholder"),

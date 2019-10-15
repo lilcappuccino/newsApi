@@ -24,19 +24,19 @@ class FullArticleVC: UIViewController {
     
     private var viewModel = FullArticleViewModel()
     
-    var article : ArticleApi?
+    var article : ArticleModel?
     var image: UIImage?
     
     
     //MARK: -> Click
     @IBAction func saveArticleClicked(_ sender: UIButton) {
         if sender.isSelected {
-             deleteArticle()
+            deleteArticle()
         } else {
-             saveArticle()
+            saveArticle()
         }
         sender.isSelected = !sender.isSelected
-        }
+    }
     
     
     @IBAction func openUrlClicked(_ sender: Any) {
@@ -97,20 +97,23 @@ class FullArticleVC: UIViewController {
     
     // MARK: -> configDate
     private func configDate(publishedAt date: String){
-          let dateFormatter = DateFormatter()
-          dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
-          let date = dateFormatter.date(from: date)
-          dateFormatter.dateFormat = "dd.MM.yyyy"
-          let dateString = dateFormatter.string(from: date!)
-          dateLabel.text = dateString
-      }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dateFormatter.string(from: date!)
+        dateLabel.text = dateString
+    }
     
     
-
+    
     //MARK: -> ViewModel method
     private func saveArticle(){
-        guard let savedArticle = article  else { return }
-        viewModel.saveArticleToDb(article: savedArticle, imageSize: image?.size)
+        guard var savedArticle = article  else { return }
+        savedArticle.image?.height = Float( image?.size.height ?? 0 )
+        savedArticle.image?.width = Float( image?.size.width ?? 0)
+        savedArticle.addedAt =  Date().currentTimeMillis()
+        viewModel.saveArticleToDb(article: savedArticle)
         
     }
     

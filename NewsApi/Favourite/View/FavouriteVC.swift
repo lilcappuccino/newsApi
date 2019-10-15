@@ -50,8 +50,7 @@ class FavouriteVC: UIViewController {
             .observeOn(MainScheduler.instance)
             .bind(to:
             self.favArticleCollectionView.rx.items(cellIdentifier: PreviewItemVCell.identifier, cellType: PreviewItemVCell.self)) { (item, article,cell) in
-                cell.article = ArticleModelToApiMapper.map(from: article.managedObject())
-//                cell.article = ArticleModelToApiMapper.map(from: article)
+                cell.article = article
         }.disposed(by: disposeBag)
         
         
@@ -67,11 +66,11 @@ class FavouriteVC: UIViewController {
             .subscribe().disposed(by: disposeBag)
         
         Observable.zip(favArticleCollectionView.rx.itemSelected ,favArticleCollectionView.rx.modelSelected(ArticleModel.self))
-                  .bind{ [weak self] indexPath, model in
+                  .bind{ [weak self] indexPath, article in
                       let cell = self?.favArticleCollectionView.cellForItem(at: indexPath) as? PreviewItemVCell
                       let fullArticleVC =  FullArticleVC(nibName: "FullArticleVC", bundle: nil  )
                       fullArticleVC.image = cell?.image.image
-                    fullArticleVC.article = ArticleModelToApiMapper.map(from: model.managedObject())
+                    fullArticleVC.article = article
                     self?.navigationController?.pushViewController(fullArticleVC, animated: true)
               }.disposed(by: disposeBag)
         

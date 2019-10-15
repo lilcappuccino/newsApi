@@ -6,18 +6,15 @@
 //  Copyright © 2019 lilcappucc. All rights reserved.
 //
 
-import Network
 import RxSwift
 
 class FeedViewModel {
     private let category = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
     
-    public var topArticles: PublishSubject<[ArticleApi]> = PublishSubject()
+    public var topArticles: PublishSubject<[ArticleModel]> = PublishSubject()
     public var error: PublishSubject<Error> = PublishSubject()
     public var categorySubject: PublishSubject<[String]> = PublishSubject()
     public var isLoadingSubject : PublishSubject<Bool> = PublishSubject()
-    
-    private var isInternenAvaibleSubject: PublishSubject<Bool> = PublishSubject()
     
     
     
@@ -29,28 +26,13 @@ class FeedViewModel {
             switch response {
             case let .success(date):
                 self?.isLoadingSubject.onNext(false)
-                self?.topArticles.onNext(date.articles)
+                let articleModel = date.articles.map({ArticleModelToApiMapper.reverse(from: $0)}).self
+                self?.topArticles.onNext(articleModel)
             case let .failure(error) :
                 print(error)
                 self?.error.onNext(error)
             }
         }
-    }
-    
-    func checkIsNetworkAvaible(){
-        let monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                print("We're connected!")
-            } else {
-                print("No connection.")
-            }
-            
-            print(path.isExpensive)
-        }
-        
-        let queue = DispatchQueue(label: "Monitor")
-        monitor.start(queue: queue)
     }
     
 }

@@ -14,7 +14,7 @@ class FullArticleViewModel {
         DatabaseManager.shared.deleteArticleFromFavourite(by: url)
     }
     
-    func saveArticleToDb(article: ArticleApi, imageSize: CGSize?){
-        DatabaseManager.shared.writeToDatabase(apiArticle: article, imageSize: imageSize)
+    func saveArticleToDb(article: ArticleModel){
+        DatabaseManager.shared.writeToDatabase(article)
     }
 }

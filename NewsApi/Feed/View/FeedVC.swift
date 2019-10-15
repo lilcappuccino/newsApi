@@ -60,7 +60,7 @@ class FeedVC: UIViewController {
         
         
         
-        Observable.zip(feedCollectionView.rx.itemSelected ,feedCollectionView.rx.modelSelected(ArticleApi.self))
+        Observable.zip(feedCollectionView.rx.itemSelected ,feedCollectionView.rx.modelSelected(ArticleModel.self))
             .bind{ [weak self] indexPath, model in
                 let cell = self?.feedCollectionView.cellForItem(at: indexPath) as? PreviewItemVCell
                 let fullArticleVC =  FullArticleVC(nibName: "FullArticleVC", bundle: nil  )
@@ -91,16 +91,16 @@ class FeedVC: UIViewController {
             loadingView.play()
         } else {
             loadingView.isHidden = true
-             errorButton.isHidden = true
+            errorButton.isHidden = true
         }
         
     }
     //MARK: -> Click
     @IBAction func clickedGoToFavourite(_ sender: Any) {
         self.tabBarController?.selectedIndex = 1
-     }
-     
-
+    }
+    
+    
     
 }
 
