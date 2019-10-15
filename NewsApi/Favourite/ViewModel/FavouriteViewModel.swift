@@ -14,7 +14,7 @@ class FavouriteViewModel {
     
     
     func fetchDateFromDb(){
-        let articleList = DatabaseManager.shared.getAllArticle().toArray()
+        let articleList = DatabaseManager.shared.getAllArticle().toArray().map({ArticleModel(managedObject: $0)})
         articlesSubject.onNext(articleList)
     }
 }

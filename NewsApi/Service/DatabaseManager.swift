@@ -26,60 +26,60 @@ class DatabaseManager {
         let article = saveArticle(apiArticle: apiArticle, sourceModel: source, imageModel: image)
         
         try! realm.write {
-            realm.add(article)
+            realm.add(article.managedObject())
         }
     }
     
     func saveArticle(apiArticle: ArticleApi, sourceModel: SourceModel? = nil, imageModel: ImageModel? = nil) -> ArticleModel {
-        let article = ArticleModel()
-        article.articleDescription = apiArticle.description
-        article.author = apiArticle.author
-        article.content = apiArticle.content
-        article.publishedAt = apiArticle.publishedAt
-        article.title = apiArticle.title
-        article.url = apiArticle.url
-        // embaded objects
-        article.image = imageModel
-        article.source = sourceModel
-        
-        article.addedAt = Date().currentTimeMillis()
+        let article = ArticleModel(source: sourceModel, image: imageModel, author: apiArticle.author, content: apiArticle.content, articleDescription: apiArticle.description, title: apiArticle.title, url: apiArticle.url, publishedAt: apiArticle.publishedAt, addedAt: Date().currentTimeMillis())
+//        article.articleDescription = apiArticle.description
+//        article.author = apiArticle.author
+//        article.content = apiArticle.content
+//        article.publishedAt = apiArticle.publishedAt
+//        article.title = apiArticle.title
+//        article.url = apiArticle.url
+//        // embaded objects
+//        article.image = imageModel
+//        article.source = sourceModel
+//
+//        article.addedAt = Date().currentTimeMillis()
         
         return article
     }
     
     func saveImage(imageUrl: String?, imageHeight: Float, imageWidth: Float) -> ImageModel? {
         guard imageUrl != nil else {return nil}
-        let image = ImageModel()
-        image.imageUrl = imageUrl
-        image.height = imageHeight
-        image.width = imageWidth
+        let image = ImageModel(imageUrl: imageUrl, height: imageHeight, width: imageWidth)
+//        image.imageUrl = imageUrl
+//        image.height = imageHeight
+//        image.width = imageWidth
         return image
     }
     
     func saveSource(sourceApi: SourceApi?) -> SourceModel? {
         guard sourceApi != nil else { return nil }
-        let sourceModel = SourceModel()
-        sourceModel.id = sourceApi?.id
-        sourceModel.name = sourceApi?.name
+        let sourceModel = SourceModel(id: sourceApi?.id, name: sourceApi?.name)
+//        sourceModel.id = sourceApi?.id
+//        sourceModel.name = sourceApi?.name
         return sourceModel
         
     }
     //Use url to private key
     func isArticleSaved(url: String ) -> Bool {
-        let article = realm.objects(ArticleModel.self).filter("url == %@", url)
+        let article = realm.objects(ArticleObject.self).filter("url == %@", url)
         return !article.isEmpty
     }
     
     func deleteArticleFromFavourite(by url: String) {
-        let article = realm.objects(ArticleModel.self).filter("url == %@", url)
+        let article = realm.objects(ArticleObject.self).filter("url == %@", url)
         try! realm.write {
             realm.delete(article, cascading: true)
         }
     }
     
     
-    func getAllArticle() -> Results<ArticleModel> {
-        return realm.objects(ArticleModel.self)
+    func getAllArticle() -> Results<ArticleObject> {
+        return realm.objects(ArticleObject.self)
         
     }
     
@@ -90,3 +90,4 @@ class DatabaseManager {
     }
         
 }
+//
