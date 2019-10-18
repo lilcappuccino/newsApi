@@ -58,7 +58,7 @@ class FavouriteVC: UIViewController {
             .articlesSubject
             .observeOn(MainScheduler.instance)
             .map({[weak self] article in
-                if(!article.isEmpty){ self?.showModalView(isPlay: false)}
+               self?.showModalView(isPlay: article.isEmpty)
                 for currentArticle in article {
                     self?.imageList.append(currentArticle.image)
                 }

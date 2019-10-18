@@ -36,7 +36,7 @@
                                 <constraint firstAttribute="height" constant="300" id="X6G-YA-mry"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="empty_fav"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="empty_state"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have not favourite article yet. :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-8i-LRq">

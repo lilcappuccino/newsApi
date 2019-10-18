@@ -27,7 +27,6 @@ class FeedVC: UIViewController {
     // MARK: -> Lifecyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        viewModel.checkIsNetworkAvaible()
         setupUI()
         setupBindings()
         viewModel.fetchDate()
@@ -37,8 +36,6 @@ class FeedVC: UIViewController {
     //MARK: -> Setup UI
     private func setupUI(){
         self.title = "Top Articles"
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         feedCollectionView.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
     }
     

@@ -9,19 +9,14 @@
 import RxSwift
 
 class FeedViewModel {
-    private let category = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
     
     public var topArticles: PublishSubject<[ArticleModel]> = PublishSubject()
     public var error: PublishSubject<Error> = PublishSubject()
-    public var categorySubject: PublishSubject<[String]> = PublishSubject()
     public var isLoadingSubject : PublishSubject<Bool> = PublishSubject()
-    
-    
     
     //MARK: -> Network request
     func fetchDate(from country: String = "us"){
         isLoadingSubject.onNext(true)
-        categorySubject.onNext(category)
         NetworkService.shared.getTopArticles(from: country){ [weak self] response in
             switch response {
             case let .success(date):
